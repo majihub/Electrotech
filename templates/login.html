@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}ElectroTech{% endblock %}
+{% block body %}
+<!-- contact section -->
+<section class="contact_section" style="padding-top: 100px;">
+  <div class="container">
+    <div class="row">
+      <div class="custom_heading-container ">
+        <h2>
+          Login Form
+        </h2>
+      </div>
+    </div>
+    {% if messages %}
+              <div class="alert alert-danger">
+                {% for i in messages %}
+                {{i}}
+                {% endfor %}
+              </div>
+              {% endif %}
+  </div>
+  <div class="container layout_padding2">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form_contaier" style="padding-top: 75px;">
+          <form method="POST">
+            {% csrf_token %}
+
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email </label>
+              <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Password </label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-info">Login</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="detail-box" style="background-image: url(/static/images/slide3-removebg-preview.png);background-repeat: no-repeat;">
+          <h3 style="color: black;">
+            Not Registered yet???
+          </h3>
+          <p style="color: black;">
+            If you want to purchase electronic item through electrotech . Get registered and login to do purchase
+          </p>
+          <p><a href="/register">Register here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end contact section -->
+{% endblock %}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>{% block title %}{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Roboto:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/static/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+ 
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        {% if sessionid %}
+        
+        <div class="top_contact-container" style="background-color:rgb(46, 45, 45)">
+          <div class="tel_container">
+            <a href="">
+              <img src="" alt=""> Logined as {{user.UserName}}
+            </a>
+          </div>
+          <div class="social-container">
+            <a href="">
+              <img src="" alt="" class="s-1">
+            </a>
+            <a href="">
+              <img src="" alt="" class="s-2">
+            </a>
+            <a href="">
+              <img src="" alt="" class="s-3">
+            </a>
+          </div>
+        </div>
+        
+        {% endif %}
+      </div>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="">
+            <img src="/static/images/logo.png" alt="">
+            <span>
+              ElectroTech
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex  flex-column flex-lg-row align-items-center w-100 justify-content-between">
+              <ul class="navbar-nav  " style="padding-left: 200px;">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>{% block section %}{% endblock %}
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/products"> Products </a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin"> Admin </a>
+                </li>
+                {% if sessionid %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}"> Logout </a>
+                </li>
+                {% endif %}
+                
+              </ul>
+             
+              <div class="login_btn-contanier ml-0 ml-lg-5">
+                {% if sessionid %}
+                <a href="{% url 'mycart' %}">
+                  <img src="/static/images/user.png" alt="">
+                  <span>
+                    Cart
+                  </span>
+                </a>
+                <a href="{% url 'favourites' %}">
+                  <img src="/static/images/user.png" alt="">
+                  <span>
+                    fav
+                  </span>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                  <img src="/static/images/user.png" alt="">
+                  <span>
+                    Login
+                  </span>
+                </a>
+                {% endif %}
+              </div>
+
+            </div>
+          </div>
+
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    {% block body %}{% endblock %}
+ 
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy; 2024 All Rights Reserved. Design by
+      <a href="https://atees.org/">Atees Industrial Training</a>
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+  </script>
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: false,
+      margin: 10,
+      nav: true,
+      navText: [],
+      autoplay: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 4
+        }
+      }
+    });
+  </script>
+  <script type="text/javascript">
+    $(".owl-2").owlCarousel({
+      loop: false,
+      margin: 10,
+      nav: true,
+      navText: [],
+      autoplay: true,
+
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 4
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

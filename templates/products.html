@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}ElectroTech{% endblock %}
+
+{% block body %}
+<section class="feature_section  layout_padding" style="background-color: rgb(99, 86, 91);">
+    <div class="container">
+      {% if messages %}
+      {% for i in messages %}
+      <div class="alert alert-danger">{{i}}</div>
+      {% endfor %}
+      {% endif %}
+      <div class="feature_container">
+        <div class="box">
+          
+          <div class="detail-box">
+            <a href="/shoppingitems/homeappliance/">
+            <h5>
+                Home Appliances
+            </h5>
+            </a>
+            <p>
+              It is a long established fact that a reader will be distracted by
+            </p>
+          </div>
+        </div>
+        <div class="box">
+            
+            <div class="detail-box">
+                <a href="/shoppingitems/mobiles/">
+              <h5>
+                Mobiles
+              </h5>
+              </a>
+              <p>
+                It is a long established fact that a reader will be distracted by
+              </p>
+            </div>
+          </div>
+          <div class="box">
+           
+            <div class="detail-box">
+                <a href="/shoppingitems/laptopsanddesktops">
+              <h5>
+                Laptops and Desktops
+              </h5>
+              </a>
+              <p>
+                It is a long established fact that a reader will be distracted by
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            
+            <div class="detail-box">
+                <a href="/shoppingitems/cameras/">
+              <h5>
+                Cameras
+              </h5>
+              </a>
+              <p>
+                It is a long established fact that a reader will be distracted by
+              </p>
+            </div>
+          </div>
+        <div class="box">
+          
+          <div class="detail-box">
+            <a href="/shoppingitems/games/">
+            <h5>
+              Gaming
+            </h5>
+            </a>
+            <p>
+              It is a long established fact that a reader will be distracted by
+            </p>
+          </div>
+        </div>
+        <div class="box">
+         
+          <div class="detail-box">
+            <a href="/shoppingitems/laptopsanddesktops/">
+            <h5>
+              Laptop and mobile Accessories
+            </h5>
+            </a>
+            <p>
+              It is a long established fact that a reader will be distracted by
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end feature section -->
+  {% endblock %}
